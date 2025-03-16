@@ -47,7 +47,7 @@ const testimonials = [
 const TestimonialCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
-  const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
+  const autoPlayRef = useRef<number | null>(null);
 
   const startAutoPlay = () => {
     stopAutoPlay();

@@ -22,7 +22,6 @@ import {
 
 import Navbar from "../components/layout/NavBar";
 import Footer from "../components/layout/Footer";
-import { useTheme } from "../context/ThemeContext";
 import {
   SidebarProvider,
   Sidebar,
@@ -45,7 +44,6 @@ const userData = {
 };
 
 const Dashboard = () => {
-  const { theme } = useTheme();
   const navigate = useNavigate();
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

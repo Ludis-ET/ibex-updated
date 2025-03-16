@@ -1,4 +1,4 @@
-const blogPosts = [
+export const blogPosts = [
   {
     id: "1",
     title: "Getting Started with Web Development: A Complete Beginner's Guide",

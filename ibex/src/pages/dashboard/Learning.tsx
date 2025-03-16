@@ -1,8 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { useState } from "react";
 import {
   Play,
   Pause,
@@ -14,18 +12,14 @@ import {
   CheckCircle,
   Clock,
   BookOpen,
-  MessageSquare,
   Download,
   Share2,
-  ChevronRight,
   ChevronDown,
   ChevronUp,
   FileText,
   Video,
   Code,
-  Award,
   ThumbsUp,
-  ThumbsDown,
   Bookmark,
   BookmarkCheck,
   X,
@@ -232,11 +226,10 @@ const notesData = [
 ];
 
 const Learning = () => {
-  const navigate = useNavigate();
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(1322); // 22:02 in seconds
+  const [duration] = useState(1322); // 22:02 in seconds
   const [volume, setVolume] = useState(80);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [activeTab, setActiveTab] = useState<

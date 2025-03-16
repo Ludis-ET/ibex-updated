@@ -24,7 +24,7 @@ import { allCourses } from "../data/courses";
 
 const CourseDetail = () => {
   const { courseId } = useParams<{ courseId: string }>();
-  const [course, setCourse] = useState(
+  const [course] = useState(
     allCourses.find((c) => c.id === courseId)
   );
   const [activeTab, setActiveTab] = useState<
@@ -741,7 +741,7 @@ const CourseDetail = () => {
                     Related Courses
                   </h3>
                   <div className="space-y-6">
-                    {relatedCourses.map((relatedCourse, index) => (
+                    {relatedCourses.map((relatedCourse) => (
                       <div key={relatedCourse.id} className="flex gap-4">
                         <img
                           src={
