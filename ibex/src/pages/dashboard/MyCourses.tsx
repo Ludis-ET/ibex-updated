@@ -5,147 +5,129 @@ import { motion } from "framer-motion";
 import {
   Search,
   Filter,
-  BookOpen,
-  Clock,
-  Star,
-  Users,
-  ChevronDown,
   X,
+  ChevronDown,
+  FileText,
+  RefreshCw,
+  ExternalLink,
 } from "lucide-react";
 
 // Sample data
-const enrolledCourses = [
+const purchasedCourses = [
   {
     id: "1",
     title: "Complete Web Development Bootcamp",
     instructor: "Dr. Alex Morgan",
-    progress: 75,
-    lastAccessed: "2 days ago",
+    purchaseDate: "May 15, 2023",
+    expiryDate: "Lifetime Access",
+    price: 89.99,
     image: "/placeholder.svg?height=200&width=400",
     category: "Programming",
-    level: "Beginner",
-    duration: "12 weeks",
-    totalLessons: 120,
-    completedLessons: 90,
-    rating: 4.9,
-    students: 15420,
+    status: "active",
+    receipt: "INV-2023-001",
+    canRefund: true,
   },
   {
     id: "2",
     title: "Data Science & Machine Learning Masterclass",
     instructor: "Prof. Sarah Williams",
-    progress: 45,
-    lastAccessed: "Yesterday",
+    purchaseDate: "April 22, 2023",
+    expiryDate: "Lifetime Access",
+    price: 99.99,
     image: "/placeholder.svg?height=200&width=400",
     category: "Data Science",
-    level: "Intermediate",
-    duration: "10 weeks",
-    totalLessons: 95,
-    completedLessons: 43,
-    rating: 4.8,
-    students: 12350,
+    status: "active",
+    receipt: "INV-2023-002",
+    canRefund: true,
   },
   {
     id: "3",
     title: "UI/UX Design Fundamentals",
     instructor: "Emily Rodriguez",
-    progress: 90,
-    lastAccessed: "Today",
+    purchaseDate: "March 10, 2023",
+    expiryDate: "Lifetime Access",
+    price: 79.99,
     image: "/placeholder.svg?height=200&width=400",
     category: "Design",
-    level: "Beginner",
-    duration: "6 weeks",
-    totalLessons: 48,
-    completedLessons: 43,
-    rating: 4.9,
-    students: 11250,
+    status: "active",
+    receipt: "INV-2023-003",
+    canRefund: false,
   },
   {
     id: "4",
     title: "Python Programming for Beginners",
     instructor: "Lisa Wang",
-    progress: 60,
-    lastAccessed: "3 days ago",
+    purchaseDate: "February 5, 2023",
+    expiryDate: "Lifetime Access",
+    price: 69.99,
     image: "/placeholder.svg?height=200&width=400",
     category: "Programming",
-    level: "Beginner",
-    duration: "8 weeks",
-    totalLessons: 64,
-    completedLessons: 38,
-    rating: 4.7,
-    students: 18750,
+    status: "active",
+    receipt: "INV-2023-004",
+    canRefund: false,
   },
   {
     id: "5",
-    title: "Cybersecurity Professional Certification",
-    instructor: "James Wilson",
-    progress: 30,
-    lastAccessed: "1 week ago",
+    title: "Introduction to Digital Marketing",
+    instructor: "Robert Johnson",
+    purchaseDate: "January 20, 2023",
+    expiryDate: "January 20, 2024",
+    price: 59.99,
     image: "/placeholder.svg?height=200&width=400",
-    category: "Cybersecurity",
-    level: "Advanced",
-    duration: "16 weeks",
-    totalLessons: 128,
-    completedLessons: 38,
-    rating: 4.7,
-    students: 8760,
+    category: "Marketing",
+    status: "active",
+    receipt: "INV-2023-005",
+    canRefund: false,
   },
 ];
 
 const MyCourses = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
-  const [selectedLevel, setSelectedLevel] = useState<string>("All");
-  const [sortBy, setSortBy] = useState<string>("progress");
+  const [selectedStatus, setSelectedStatus] = useState<string>("All");
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [isRefundModalOpen, setIsRefundModalOpen] = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState<any>(null);
 
-  // Filter and sort courses
-  const filteredCourses = enrolledCourses
-    .filter((course) => {
-      // Search filter
-      if (
-        searchTerm &&
-        !course.title.toLowerCase().includes(searchTerm.toLowerCase())
-      ) {
-        return false;
-      }
-
-      // Category filter
-      if (selectedCategory !== "All" && course.category !== selectedCategory) {
-        return false;
-      }
-
-      // Level filter
-      if (selectedLevel !== "All" && course.level !== selectedLevel) {
-        return false;
-      }
-
-      return true;
-    })
-    .sort((a, b) => {
-      // Sort courses
-      switch (sortBy) {
-        case "progress":
-          return b.progress - a.progress;
-        case "recent":
-          // This would normally use dates, but for demo we'll use the lastAccessed string
-          return a.lastAccessed.localeCompare(b.lastAccessed);
-        case "title":
-          return a.title.localeCompare(b.title);
-        default:
-          return 0;
-      }
-    });
-
-  // Get unique categories and levels for filters
+  // Get unique categories for filter
   const categories = [
     "All",
-    ...new Set(enrolledCourses.map((course) => course.category)),
+    ...Array.from(new Set(purchasedCourses.map((course) => course.category))),
   ];
-  const levels = [
-    "All",
-    ...new Set(enrolledCourses.map((course) => course.level)),
-  ];
+
+  // Filter courses
+  const filteredCourses = purchasedCourses.filter((course) => {
+    // Search filter
+    if (
+      searchTerm &&
+      !course.title.toLowerCase().includes(searchTerm.toLowerCase())
+    ) {
+      return false;
+    }
+
+    // Category filter
+    if (selectedCategory !== "All" && course.category !== selectedCategory) {
+      return false;
+    }
+
+    // Status filter
+    if (selectedStatus !== "All" && course.status !== selectedStatus) {
+      return false;
+    }
+
+    return true;
+  });
+
+  const handleRefundRequest = (course: any) => {
+    setSelectedCourse(course);
+    setIsRefundModalOpen(true);
+  };
+
+  const confirmRefund = () => {
+    // In a real app, you would send a request to your backend
+    alert(`Refund requested for: ${selectedCourse.title}`);
+    setIsRefundModalOpen(false);
+  };
 
   return (
     <div className="space-y-6">
@@ -155,9 +137,19 @@ const MyCourses = () => {
             My Courses
           </h1>
           <p className="text-gray-600 dark:text-gray-300">
-            Track your progress and continue learning
+            Manage your purchased courses
           </p>
         </div>
+
+        <a
+          href="https://learn.nanolinktech.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors"
+        >
+          Go to Learning Platform
+          <ExternalLink className="ml-2 h-4 w-4" />
+        </a>
       </div>
 
       {/* Search and Filters */}
@@ -217,33 +209,14 @@ const MyCourses = () => {
 
             <div className="relative">
               <select
-                value={selectedLevel}
-                onChange={(e) => setSelectedLevel(e.target.value)}
+                value={selectedStatus}
+                onChange={(e) => setSelectedStatus(e.target.value)}
                 className="appearance-none bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg py-2 pl-4 pr-10 text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
-                <option value="" disabled>
-                  Level
-                </option>
-                {levels.map((level) => (
-                  <option key={level} value={level}>
-                    {level}
-                  </option>
-                ))}
-              </select>
-              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 dark:text-gray-300">
-                <ChevronDown className="h-4 w-4" />
-              </div>
-            </div>
-
-            <div className="relative">
-              <select
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value)}
-                className="appearance-none bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg py-2 pl-4 pr-10 text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >
-                <option value="progress">Progress</option>
-                <option value="recent">Recently Accessed</option>
-                <option value="title">Title</option>
+                <option value="All">All Statuses</option>
+                <option value="active">Active</option>
+                <option value="expired">Expired</option>
+                <option value="refunded">Refunded</option>
               </select>
               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 dark:text-gray-300">
                 <ChevronDown className="h-4 w-4" />
@@ -274,8 +247,8 @@ const MyCourses = () => {
                 <X className="h-6 w-6" />
               </button>
             </div>
-            <div className="p-4 space-y-6">
-              <div>
+            <div className="p-4">
+              <div className="mb-6">
                 <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Category
                 </h4>
@@ -299,53 +272,27 @@ const MyCourses = () => {
                 </div>
               </div>
 
-              <div>
+              <div className="mb-6">
                 <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Level
+                  Status
                 </h4>
                 <div className="space-y-2">
-                  {levels.map((level) => (
+                  {["All", "active", "expired", "refunded"].map((status) => (
                     <button
-                      key={level}
+                      key={status}
                       onClick={() => {
-                        setSelectedLevel(level);
+                        setSelectedStatus(status);
                         setIsFilterOpen(false);
                       }}
                       className={`block w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ${
-                        selectedLevel === level
+                        selectedStatus === status
                           ? "bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-medium"
                           : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
                       }`}
                     >
-                      {level}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Sort By
-                </h4>
-                <div className="space-y-2">
-                  {[
-                    { value: "progress", label: "Progress" },
-                    { value: "recent", label: "Recently Accessed" },
-                    { value: "title", label: "Title" },
-                  ].map((option) => (
-                    <button
-                      key={option.value}
-                      onClick={() => {
-                        setSortBy(option.value);
-                        setIsFilterOpen(false);
-                      }}
-                      className={`block w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ${
-                        sortBy === option.value
-                          ? "bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-medium"
-                          : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
-                      }`}
-                    >
-                      {option.label}
+                      {status === "All"
+                        ? "All Statuses"
+                        : status.charAt(0).toUpperCase() + status.slice(1)}
                     </button>
                   ))}
                 </div>
@@ -355,8 +302,7 @@ const MyCourses = () => {
                 <button
                   onClick={() => {
                     setSelectedCategory("All");
-                    setSelectedLevel("All");
-                    setSortBy("progress");
+                    setSelectedStatus("All");
                     setIsFilterOpen(false);
                   }}
                   className="flex-1 py-2 px-4 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
@@ -379,7 +325,11 @@ const MyCourses = () => {
       <div className="space-y-6">
         {filteredCourses.length > 0 ? (
           filteredCourses.map((course) => (
-            <CourseCard key={course.id} course={course} />
+            <CourseCard
+              key={course.id}
+              course={course}
+              onRefundRequest={handleRefundRequest}
+            />
           ))
         ) : (
           <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-8 text-center">
@@ -396,7 +346,7 @@ const MyCourses = () => {
               onClick={() => {
                 setSearchTerm("");
                 setSelectedCategory("All");
-                setSelectedLevel("All");
+                setSelectedStatus("All");
               }}
               className="inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
             >
@@ -405,6 +355,36 @@ const MyCourses = () => {
           </div>
         )}
       </div>
+
+      {/* Refund Confirmation Modal */}
+      {isRefundModalOpen && selectedCourse && (
+        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-xl max-w-md w-full p-6">
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
+              Confirm Refund Request
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-6">
+              Are you sure you want to request a refund for{" "}
+              <span className="font-medium">{selectedCourse.title}</span>? This
+              action cannot be undone.
+            </p>
+            <div className="flex justify-end gap-3">
+              <button
+                onClick={() => setIsRefundModalOpen(false)}
+                className="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={confirmRefund}
+                className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
+              >
+                Request Refund
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
@@ -415,20 +395,26 @@ interface CourseCardProps {
     id: string;
     title: string;
     instructor: string;
-    progress: number;
-    lastAccessed: string;
+    purchaseDate: string;
+    expiryDate: string;
+    price: number;
     image: string;
     category: string;
-    level: string;
-    duration: string;
-    totalLessons: number;
-    completedLessons: number;
-    rating: number;
-    students: number;
+    status: string;
+    receipt: string;
+    canRefund: boolean;
   };
+  onRefundRequest: (course: any) => void;
 }
 
-const CourseCard = ({ course }: CourseCardProps) => {
+const CourseCard = ({ course, onRefundRequest }: CourseCardProps) => {
+  const statusClasses = {
+    active:
+      "bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400",
+    expired: "bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400",
+    refunded: "bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400",
+  };
+
   return (
     <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden">
       <div className="flex flex-col md:flex-row">
@@ -455,63 +441,68 @@ const CourseCard = ({ course }: CourseCardProps) => {
 
               <div className="flex flex-wrap gap-4 mb-4">
                 <div className="flex items-center">
-                  <Clock className="h-4 w-4 text-gray-500 dark:text-gray-400 mr-1" />
                   <span className="text-sm text-gray-700 dark:text-gray-300">
-                    {course.duration}
+                    <span className="font-medium">Purchased:</span>{" "}
+                    {course.purchaseDate}
                   </span>
                 </div>
                 <div className="flex items-center">
-                  <BookOpen className="h-4 w-4 text-gray-500 dark:text-gray-400 mr-1" />
                   <span className="text-sm text-gray-700 dark:text-gray-300">
-                    {course.level}
+                    <span className="font-medium">Expires:</span>{" "}
+                    {course.expiryDate}
                   </span>
                 </div>
                 <div className="flex items-center">
-                  <Star className="h-4 w-4 text-yellow-400 fill-yellow-400 mr-1" />
                   <span className="text-sm text-gray-700 dark:text-gray-300">
-                    {course.rating}
-                  </span>
-                </div>
-                <div className="flex items-center">
-                  <Users className="h-4 w-4 text-gray-500 dark:text-gray-400 mr-1" />
-                  <span className="text-sm text-gray-700 dark:text-gray-300">
-                    {course.students.toLocaleString()} students
+                    <span className="font-medium">Price:</span> $
+                    {course.price.toFixed(2)}
                   </span>
                 </div>
               </div>
             </div>
 
             <div className="flex flex-col items-end justify-between">
-              <div className="text-right mb-4">
-                <p className="text-sm text-gray-500 dark:text-gray-400">
-                  Last accessed
-                </p>
-                <p className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                  {course.lastAccessed}
-                </p>
+              <span
+                className={`px-3 py-1 rounded-full text-xs font-medium ${
+                  statusClasses[course.status as keyof typeof statusClasses]
+                }`}
+              >
+                {course.status.charAt(0).toUpperCase() + course.status.slice(1)}
+              </span>
+
+              <div className="flex flex-col gap-2 mt-4">
+                <a
+                  href="https://learn.nanolinktech.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors"
+                >
+                  Access Course
+                  <ExternalLink className="ml-2 h-4 w-4" />
+                </a>
+
+                <div className="flex gap-2">
+                  <a
+                    href={`/receipts/${course.receipt}.pdf`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                  >
+                    <FileText className="h-4 w-4 mr-1" />
+                    Receipt
+                  </a>
+
+                  {course.canRefund && (
+                    <button
+                      onClick={() => onRefundRequest(course)}
+                      className="inline-flex items-center justify-center px-3 py-1 bg-red-100 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-sm rounded-lg hover:bg-red-200 dark:hover:bg-red-900/30 transition-colors"
+                    >
+                      <RefreshCw className="h-4 w-4 mr-1" />
+                      Refund
+                    </button>
+                  )}
+                </div>
               </div>
-
-              <button className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors">
-                Continue Learning
-              </button>
-            </div>
-          </div>
-
-          <div className="mt-6">
-            <div className="flex justify-between items-center mb-2">
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                {course.completedLessons} of {course.totalLessons} lessons
-                completed
-              </span>
-              <span className="text-sm font-bold text-blue-600 dark:text-blue-400">
-                {course.progress}%
-              </span>
-            </div>
-            <div className="h-2 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-              <div
-                className="h-full bg-blue-600 dark:bg-blue-500 rounded-full"
-                style={{ width: `${course.progress}%` }}
-              ></div>
             </div>
           </div>
         </div>

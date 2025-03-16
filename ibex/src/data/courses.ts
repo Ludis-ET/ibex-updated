@@ -7,7 +7,8 @@ export const featuredCourses = [
     reviewCount: 1250,
     price: 129.99,
     discountPrice: 89.99,
-    image: "/placeholder.svg?height=200&width=400",
+    image:
+      "https://images.pexels.com/photos/276452/pexels-photo-276452.jpeg?height=200&width=400",
     category: "Programming",
     level: "Beginner",
     duration: "12 weeks",
@@ -23,7 +24,8 @@ export const featuredCourses = [
     reviewCount: 980,
     price: 149.99,
     discountPrice: 99.99,
-    image: "/placeholder.svg?height=200&width=400",
+    image:
+      "https://images.pexels.com/photos/16380906/pexels-photo-16380906/free-photo-of-webpage-of-ai-chatbot-a-prototype-ai-smith-open-chatbot-is-seen-on-the-website-of-openai-on-a-apple-smartphone-examples-capabilities-and-limitations-are-shown.jpeg?height=200&width=400",
     category: "Data Science",
     level: "Intermediate",
     duration: "10 weeks",
@@ -39,7 +41,8 @@ export const featuredCourses = [
     reviewCount: 750,
     price: 199.99,
     discountPrice: 149.99,
-    image: "/placeholder.svg?height=200&width=400",
+    image:
+      "https://images.pexels.com/photos/5935794/pexels-photo-5935794.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     category: "Cybersecurity",
     level: "Advanced",
     duration: "16 weeks",
@@ -54,7 +57,8 @@ export const featuredCourses = [
     rating: 4.8,
     reviewCount: 620,
     price: 129.99,
-    image: "/placeholder.svg?height=200&width=400",
+    image:
+      "https://images.pexels.com/photos/17489163/pexels-photo-17489163/free-photo-of-computer-server-in-data-center-room.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     category: "Cloud Computing",
     level: "Intermediate",
     duration: "8 weeks",
@@ -70,7 +74,8 @@ export const featuredCourses = [
     reviewCount: 890,
     price: 119.99,
     discountPrice: 79.99,
-    image: "/placeholder.svg?height=200&width=400",
+    image:
+      "https://images.pexels.com/photos/196645/pexels-photo-196645.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     category: "Design",
     level: "Beginner",
     duration: "6 weeks",
@@ -85,7 +90,8 @@ export const featuredCourses = [
     rating: 4.7,
     reviewCount: 560,
     price: 159.99,
-    image: "/placeholder.svg?height=200&width=400",
+    image:
+      "https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     category: "DevOps",
     level: "Advanced",
     duration: "10 weeks",
@@ -105,7 +111,8 @@ export const allCourses = [
     reviewCount: 720,
     price: 139.99,
     discountPrice: 99.99,
-    image: "/placeholder.svg?height=200&width=400",
+    image:
+      "https://images.pexels.com/photos/5426401/pexels-photo-5426401.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     category: "Programming",
     level: "Intermediate",
     duration: "8 weeks",
@@ -120,7 +127,8 @@ export const allCourses = [
     rating: 4.6,
     reviewCount: 480,
     price: 179.99,
-    image: "/placeholder.svg?height=200&width=400",
+    image:
+      "https://images.pexels.com/photos/730564/pexels-photo-730564.jpeg?auto=compress&cs=tinysrgb&w=600",
     category: "Blockchain",
     level: "Advanced",
     duration: "12 weeks",
@@ -136,7 +144,8 @@ export const allCourses = [
     reviewCount: 1350,
     price: 99.99,
     discountPrice: 69.99,
-    image: "/placeholder.svg?height=200&width=400",
+    image:
+      "https://images.pexels.com/photos/11035474/pexels-photo-11035474.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     category: "Programming",
     level: "Beginner",
     duration: "6 weeks",
@@ -152,7 +161,8 @@ export const allCourses = [
     reviewCount: 890,
     price: 169.99,
     discountPrice: 129.99,
-    image: "/placeholder.svg?height=200&width=400",
+    image:
+      "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=600",
     category: "AI",
     level: "Intermediate",
     duration: "10 weeks",

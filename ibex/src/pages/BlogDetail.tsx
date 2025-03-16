@@ -397,7 +397,6 @@ document.documentElement.style.setProperty('--primary-color', '#e74c3c');</code>
     likes: 47,
     comments: 8,
   },
-  // Other blog posts as defined in the Blogs.tsx file...
 ];
 
 const BlogDetail = () => {

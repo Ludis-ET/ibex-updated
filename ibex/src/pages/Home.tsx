@@ -52,7 +52,7 @@ const Home = () => {
       <main className="pt-20">
         {/* Hero Section */}
         <section className="relative bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 py-20 md:py-28 overflow-hidden">
-          <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+          {/* <div className="absolute inset-0 bg-grid-pattern opacity-5"></div> */}
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col lg:flex-row items-center">
               <motion.div
@@ -97,7 +97,7 @@ const Home = () => {
                 <div className="relative">
                   <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur-lg opacity-30 dark:opacity-40"></div>
                   <img
-                    src="/placeholder.svg?height=500&width=600"
+                    src="https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1?height=500&width=600"
                     alt="Students learning technology"
                     className="relative rounded-2xl shadow-xl w-full"
                   />
@@ -142,7 +142,7 @@ const Home = () => {
           <div className="container mx-auto px-4 md:px-6">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-                Why Choose Nanolink Tech
+                Why Choose Ibex
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                 We provide the best learning experience with industry experts

@@ -10,7 +10,8 @@ const testimonials = [
     id: 1,
     name: "Sarah Johnson",
     role: "Software Developer",
-    image: "/placeholder.svg?height=100&width=100",
+    image:
+      "https://images.pexels.com/photos/31147576/pexels-photo-31147576/free-photo-of-elegant-portrait-of-woman-with-traditional-hairpins.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     rating: 5,
     text: "The Data Science course completely transformed my career. The instructors were knowledgeable and the curriculum was comprehensive. I landed a job within a month of completing the course!",
   },
@@ -18,7 +19,8 @@ const testimonials = [
     id: 2,
     name: "Michael Chen",
     role: "Data Analyst",
-    image: "/placeholder.svg?height=100&width=100",
+    image:
+      "https://images.pexels.com/photos/31145336/pexels-photo-31145336/free-photo-of-contemplative-woman-by-window-in-ouro-preto.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     rating: 5,
     text: "Nanolink Tech provided me with the skills I needed to transition into a tech career. The hands-on projects and personalized feedback made all the difference in my learning journey.",
   },
@@ -26,7 +28,8 @@ const testimonials = [
     id: 3,
     name: "Emily Rodriguez",
     role: "Cybersecurity Specialist",
-    image: "/placeholder.svg?height=100&width=100",
+    image:
+      "https://images.pexels.com/photos/31133322/pexels-photo-31133322/free-photo-of-young-adult-contemplative-portrait-outdoors.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     rating: 4,
     text: "The Cybersecurity course was challenging but incredibly rewarding. The instructors brought real-world scenarios into the classroom, which prepared me for my current role.",
   },
@@ -34,7 +37,8 @@ const testimonials = [
     id: 4,
     name: "David Kim",
     role: "Full Stack Developer",
-    image: "/placeholder.svg?height=100&width=100",
+    image:
+      "https://images.pexels.com/photos/31095654/pexels-photo-31095654/free-photo-of-smiling-woman-in-bucket-hat-with-floral-background.jpeg?auto=compress&cs=tinysrgb&w=600",
     rating: 5,
     text: "I tried several online platforms before finding Nanolink Tech. The difference is night and day. The community support and mentor guidance helped me build a portfolio that impressed employers.",
   },

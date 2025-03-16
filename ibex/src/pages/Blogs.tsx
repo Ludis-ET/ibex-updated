@@ -16,12 +16,14 @@ const blogPosts = [
     excerpt:
       "Learn the fundamentals of web development with this comprehensive guide for absolute beginners. Discover HTML, CSS, and JavaScript basics to start your coding journey.",
     author: "Dr. Alex Morgan",
-    authorAvatar: "/placeholder.svg?height=50&width=50",
+    authorAvatar:
+      "https://images.pexels.com/photos/19825351/pexels-photo-19825351/free-photo-of-blog-post-with-scrabble-letters-spelling-out-blog-post.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     date: "Mar 15, 2023",
     readTime: "8 min read",
     category: "Web Development",
     tags: ["HTML", "CSS", "JavaScript", "Beginners"],
-    featuredImage: "/placeholder.svg?height=400&width=800",
+    featuredImage:
+      "https://images.pexels.com/photos/19825351/pexels-photo-19825351/free-photo-of-blog-post-with-scrabble-letters-spelling-out-blog-post.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     featured: true,
   },
   {
@@ -30,12 +32,14 @@ const blogPosts = [
     excerpt:
       "Explore how artificial intelligence is revolutionizing education systems worldwide, creating personalized learning paths and helping educators be more effective.",
     author: "Prof. Sarah Williams",
-    authorAvatar: "/placeholder.svg?height=50&width=50",
+    authorAvatar:
+      "https://images.pexels.com/photos/4057659/pexels-photo-4057659.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     date: "Apr 2, 2023",
     readTime: "12 min read",
     category: "Artificial Intelligence",
     tags: ["AI", "Education", "Machine Learning", "EdTech"],
-    featuredImage: "/placeholder.svg?height=400&width=800",
+    featuredImage:
+      "https://images.pexels.com/photos/4057659/pexels-photo-4057659.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     featured: true,
   },
   {
@@ -44,12 +48,14 @@ const blogPosts = [
     excerpt:
       "Master the latest CSS features like Grid, Flexbox, and Custom Properties to create beautiful, responsive user interfaces that work across all devices.",
     author: "Emily Rodriguez",
-    authorAvatar: "/placeholder.svg?height=50&width=50",
+    authorAvatar:
+      "https://images.pexels.com/photos/20046363/pexels-photo-20046363/free-photo-of-pictures-of-valentines-day-on-laptop-screen.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     date: "Apr 10, 2023",
     readTime: "10 min read",
     category: "Web Development",
     tags: ["CSS", "Responsive Design", "UI", "Frontend"],
-    featuredImage: "/placeholder.svg?height=400&width=800",
+    featuredImage:
+      "https://images.pexels.com/photos/20046363/pexels-photo-20046363/free-photo-of-pictures-of-valentines-day-on-laptop-screen.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     featured: false,
   },
   {
@@ -58,12 +64,14 @@ const blogPosts = [
     excerpt:
       "Learn a step-by-step approach to data science projects, covering data collection, cleaning, analysis, modeling, and deployment of machine learning solutions.",
     author: "Michael Chen",
-    authorAvatar: "/placeholder.svg?height=50&width=50",
+    authorAvatar:
+      "https://images.pexels.com/photos/18465017/pexels-photo-18465017/free-photo-of-a-typewriter-with-a-paper-that-says-deepfake.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     date: "Apr 18, 2023",
     readTime: "15 min read",
     category: "Data Science",
     tags: ["Python", "Machine Learning", "Data Analysis", "Project Management"],
-    featuredImage: "/placeholder.svg?height=400&width=800",
+    featuredImage:
+      "https://images.pexels.com/photos/18465017/pexels-photo-18465017/free-photo-of-a-typewriter-with-a-paper-that-says-deepfake.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     featured: false,
   },
   {
@@ -72,12 +80,14 @@ const blogPosts = [
     excerpt:
       "Protect your organization with these essential cybersecurity measures designed specifically for remote and distributed teams in the post-pandemic workplace.",
     author: "James Wilson",
-    authorAvatar: "/placeholder.svg?height=50&width=50",
+    authorAvatar:
+      "https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     date: "Apr 25, 2023",
     readTime: "9 min read",
     category: "Cybersecurity",
     tags: ["Security", "Remote Work", "Data Protection", "Privacy"],
-    featuredImage: "/placeholder.svg?height=400&width=800",
+    featuredImage:
+      "https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     featured: false,
   },
   {
@@ -86,12 +96,14 @@ const blogPosts = [
     excerpt:
       "Compare React and Vue.js across performance, learning curve, community support, and use cases to determine which framework is best for your next project.",
     author: "Jessica Lee",
-    authorAvatar: "/placeholder.svg?height=50&width=50",
+    authorAvatar:
+      "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     date: "May 3, 2023",
     readTime: "11 min read",
     category: "Web Development",
     tags: ["React", "Vue.js", "JavaScript", "Frontend"],
-    featuredImage: "/placeholder.svg?height=400&width=800",
+    featuredImage:
+      "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     featured: false,
   },
   {
@@ -100,12 +112,14 @@ const blogPosts = [
     excerpt:
       "Understand the fundamental concepts of cloud computing architecture, including service models, deployment strategies, and best practices for scalability.",
     author: "Robert Johnson",
-    authorAvatar: "/placeholder.svg?height=50&width=50",
+    authorAvatar:
+      "https://images.pexels.com/photos/1089438/pexels-photo-1089438.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     date: "May 12, 2023",
     readTime: "13 min read",
     category: "Cloud Computing",
     tags: ["AWS", "Azure", "Infrastructure", "DevOps"],
-    featuredImage: "/placeholder.svg?height=400&width=800",
+    featuredImage:
+      "https://images.pexels.com/photos/1089438/pexels-photo-1089438.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     featured: false,
   },
   {
@@ -114,12 +128,14 @@ const blogPosts = [
     excerpt:
       "Bridge the gap between development and design by learning essential UI/UX principles that will help you create more intuitive, user-friendly applications.",
     author: "Emily Rodriguez",
-    authorAvatar: "/placeholder.svg?height=50&width=50",
+    authorAvatar:
+      "https://images.pexels.com/photos/330771/pexels-photo-330771.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     date: "May 20, 2023",
     readTime: "7 min read",
     category: "Design",
     tags: ["UI", "UX", "Design Systems", "Accessibility"],
-    featuredImage: "/placeholder.svg?height=400&width=800",
+    featuredImage:
+      "https://images.pexels.com/photos/330771/pexels-photo-330771.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     featured: false,
   },
 ];

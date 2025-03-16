@@ -17,7 +17,7 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
-              Nanolink
+              Ibex
               <span className="text-blue-600 dark:text-blue-400">Tech</span>
             </h3>
             <p className="text-gray-600 dark:text-gray-300 mb-4">
@@ -27,24 +27,28 @@ const Footer = () => {
             <div className="flex space-x-4">
               <a
                 href="#"
+                title="Facebook"
                 className="text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors"
               >
                 <Facebook size={20} />
               </a>
               <a
                 href="#"
+                title="Twitter"
                 className="text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors"
               >
                 <Twitter size={20} />
               </a>
               <a
                 href="#"
+                title="Instagram"
                 className="text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors"
               >
                 <Instagram size={20} />
               </a>
               <a
                 href="#"
+                title="Linkedin"
                 className="text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors"
               >
                 <Linkedin size={20} />
@@ -165,7 +169,7 @@ const Footer = () => {
         <div className="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-600 dark:text-gray-400 text-sm">
-              &copy; {new Date().getFullYear()} Nanolink Data Tech LLC. All
+              &copy; {new Date().getFullYear()} Ibex Data Tech LLC. All
               rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
